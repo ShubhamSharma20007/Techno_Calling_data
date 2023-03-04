@@ -3,6 +3,14 @@ import plotly.express as px
 import streamlit as st
 import seaborn as sns
 from PIL import  Image
+matplotlib==3.7.0
+#pandas==1.5.3
+#Pillow==9.4.0
+#plotly==5.13.0
+#seaborn==0.12.2
+#streamlit==1.19.0
+#~treamlit==1.18.1
+
 
 # Image
 
