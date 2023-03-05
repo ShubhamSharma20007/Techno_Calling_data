@@ -1,26 +1,23 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 import plotly.express as px
 import streamlit as st
 import seaborn as sns
-from PIL import  Image
-#matplotlib==3.7.0
-#pandas==1.5.3
-#Pillow==9.4.0
-#plotly==5.13.0
-#seaborn==0.12.2
-#streamlit==1.19.0
-#~treamlit==1.18.1
-
+from PIL import Image
+import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings('ignore')
 
 # Image
 
-im = Image.open(fp="C:\\Users\\admin\\Downloads\\Techno.jpeg")
+
+im = Image.open(fp="Techno.jpeg")
 
 st.set_page_config(page_title='OneKlick Techno',layout='wide',page_icon=im)
 
 @st.cache_data
 def data_excel():
-    file_name = r"D:\Machine Learning\techno data\Calling.xlsx"
+    file_name = r"Calling.xlsx"
     dataframe = pd.read_excel(io=file_name,engine="openpyxl",
                               sheet_name="Calling data",nrows=674)
     return dataframe
@@ -85,7 +82,7 @@ st.plotly_chart(fig, theme="streamlit", use_container_width=True)
 import seaborn as sns
 ax = plt.figure(figsize=(18,5))
 sns.set_style("white")
-sns.lineplot(data= dataframe,x = "Date",y="Time In Min.",hue=dataframe.Name,ci=20).set_title("Calling Time by Date",fontsize=13)
+sns.lineplot(data= dataframe,x = "Date",y="Time In Min.",hue=dataframe.Name,errorbar=("ci",15)).set_title("Calling Time by Date",fontsize=13)
 plt.xticks(dataframe['Date'].unique(),rotation=70,fontsize=10)
 sns.despine(right=True,top=True)
 plt.xlabel(xlabel=" ")
@@ -122,6 +119,7 @@ st.dataframe(dataframe,use_container_width=False)
 hide_streamlit_style= """
 <style>
 #Mainmenu {visibility:hidden;}
+footer {visibility :hidden;}
 </style>
 """
 st.markdown(hide_streamlit_style,unsafe_allow_html=True)
