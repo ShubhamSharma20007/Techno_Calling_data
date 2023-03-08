@@ -86,7 +86,6 @@ sns.lineplot(data= dataframe,x = "Date",y="Time In Min.",hue=dataframe.Name,erro
 plt.xticks(dataframe['Date'].unique(),rotation=70,fontsize=10)
 sns.despine(right=True,top=True)
 plt.xlabel(xlabel=" ")
-plt.grid(axis='y)
 st.pyplot(ax)
 
 
